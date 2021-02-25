@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import BiggerNumber from "./components/BiggerNumber";
+import LiseItems from "./components/LizeItems";
+import RandomNumbers from "./components/RandomNumbers";
+import Sum from "./components/Summa";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Sum a={5} b={7} />
+     <RandomNumbers min={5} max={10} />
+     <BiggerNumber a={5} b={7} />
+     <LiseItems list = {['Apple', 'Pear', 'Limon', 'Tomato', "Ananas", "Banana"]}></LiseItems>
     </div>
   );
 }
