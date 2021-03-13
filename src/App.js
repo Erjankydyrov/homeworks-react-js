@@ -1,3 +1,5 @@
+import Person from "./components/Person/Person";
+import PersonList from "./components/PersonList/PersonList";
 
 
 function App() {
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-     <PersonList persons = {wpms}/>
+     <PersonList persons = {wpms} />
     </div>
   );
 }
