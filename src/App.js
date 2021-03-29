@@ -1,43 +1,32 @@
 import { useState } from "react";
-import MiniGame from "./components/MiniGame/MiniGame";
-import Person from "./components/Person/Person";
-import PersonList from "./components/PersonList/PersonList";
-
-function App() {
-
-  const [miniGame, setMiniGame] = useState(20);
-  const [a, setA] = useState(randomNmber(50));
-  const [b, setB] = useState(randomNmber(50));
-  const [c, setC] = useState("?");
-
-  function randomNmber(limit) {
+import Countdown from "./components/Countdown/Countdown";
+const App = () => {
+  const [a, setA] = useState(randomNumber(50));
+  const [b, setB] = useState(randomNumber(50));
+  const [answer, setAnswer] = useState("?");
+  const [countdown, setCountdown] = useState(20);
+  function randomNumber(limit) {
     return Math.round(Math.random() * limit);
   }
-
-  function reset() {
-    setA(randomNmber(50));
-    setB(randomNmber(50));
-    setC("?");
-    setMiniGame(20);
-  }
-
   function checkAnswer() {
-    if (a + b == c) {
-      reset();
-    } 
+    const c = a + b;
+    if (c == answer) {
+      setA(randomNumber(50));
+      setB(randomNumber(50));
+      setAnswer("?");
+      setCountdown(20);
+    }
     else {
-      alert("No!");
+      alert("No");
     }
   }
-
   return (
     <div className="App">
-      {a} + {b} = {c}
-      <MiniGame miniGame={miniGame} setMiniGame={setMiniGame} />
-      <input type="number" onChange={({ target }) => setC(target.value)} />
-      <button onClick={checkAnswer}>Ok</button>
+      {a} + {b} = {answer}
+      <Countdown countdown={countdown} setCountdown={setCountdown} />
+      <input type="number" value={answer} onChange={({ target }) => setAnswer(target.value)} />
+      <button onClick={() => checkAnswer()}>Ok</button>
     </div>
   );
 }
-
 export default App;
