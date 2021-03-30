@@ -4,6 +4,7 @@ const App = () => {
 
   const [a, setA] = useState(randomNumber(50));
   const [b, setB] = useState(randomNumber(50));
+  const [c, setC] = useState(randomNumber(50));
   const [answer, setAnswer] = useState("?");
   const [countdown, setCountdown] = useState(20);
   const [deistvie, setDeistvie] = useState("+");
@@ -13,10 +14,11 @@ const App = () => {
   }
 
   function checkAnswer() {
-    const c = a + b;
-    if (c == answer) {
+    const f = a + b - c;
+    if (f == answer) {
       setA(randomNumber(50));
       setB(randomNumber(50));
+      setC(randomNumber(50));
       setAnswer("?");
       setCountdown(20);
     }
@@ -24,10 +26,12 @@ const App = () => {
       alert("No");
     }
   }
-  function randomDeist() {
-    let randDeist = ["+","-","*","/"];
-    setDeistvie(randDeist[Math.round(Math.random()*randDeist.length)]);
-  }
+  // function randomDeist() {
+  //   const randDeist = ["+","-","*","/"];
+  //   let arr;
+  //   arr[Math.floor(Math.random() * randDeist.length)];
+  //   setDeistvie(randDeist[arr])
+  // }
 
   let userInput = null;
   if (countdown > 0) {
@@ -42,7 +46,7 @@ const App = () => {
   
   return (
     <div className="App">
-      {a} + {b} = {answer}
+      {a} + {b} - {c} = {answer}
       <Countdown countdown={countdown} setCountdown={setCountdown} />
       {userInput}
     </div>
