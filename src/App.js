@@ -1,4 +1,5 @@
 import { useState } from "react";
+import className from "./App.css"
 import Countdown from "./components/Countdown/Countdown";
 const App = () => {
 
@@ -28,7 +29,7 @@ const App = () => {
   }
   // function randomDeist() {
   //   const randDeist = ["+","-","*","/"];
-  //   let arr;
+  //   let arr = [];
   //   arr[Math.floor(Math.random() * randDeist.length)];
   //   setDeistvie(randDeist[arr])
   // }
