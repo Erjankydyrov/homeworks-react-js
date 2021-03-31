@@ -8,7 +8,7 @@ const App = () => {
   const [c, setC] = useState(randomNumber(50));
   const [answer, setAnswer] = useState("?");
   const [countdown, setCountdown] = useState(20);
-  const [deistvie, setDeistvie] = useState("+");
+  const [deistvie, setDeistvie] = useState();
 
   function randomNumber(limit) {
     return Math.round(Math.random() * limit);
@@ -27,12 +27,6 @@ const App = () => {
       alert("No");
     }
   }
-  // function randomDeist() {
-  //   const randDeist = ["+","-","*","/"];
-  //   let arr = [];
-  //   arr[Math.floor(Math.random() * randDeist.length)];
-  //   setDeistvie(randDeist[arr])
-  // }
 
   let userInput = null;
   if (countdown > 0) {
